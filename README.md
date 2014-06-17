@@ -8,8 +8,9 @@ For now:
 
 To install things required for testing:
 
+    cd remilia-tan
     npm install -g hubot coffee-script
 
 To test:
 
-    bin/hubota --name remilia-tan
+    bin/hubot --name remilia-tan
