@@ -1,16 +1,25 @@
 # Remilia-tan
 
+## Installation / Usage
+
 I'll write a better readme someday.
 
-For now:
+Clone the repository:
 
     git clone https://github.com/finiks/remilia-tan.git
 
-To install things required for testing:
+Install the packages required for testing:
 
     cd remilia-tan
     npm install -g hubot coffee-script
 
-To test:
+If you want to launch the bot locally:
 
     bin/hubot --name remilia-tan
+
+## ToDo list
+
+- Make a preper help command.
+- Put a weather plugin.
+- Put a lastfm plugin.
+- Make a wanikani plugin.
