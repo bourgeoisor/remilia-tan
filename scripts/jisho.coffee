@@ -20,4 +20,7 @@ module.exports = (robot) ->
             pos = $(this).prev('.meaning-tags.row')?.text()
             if pos != "" then out += "  #{pos}\n"
             out += "    #{i+1}. #{$(this).find('span[class=meaning-meaning]').text()}\n"
-        msg.send out
+        if out == ""
+          msg.send "Sorry, couldn't find anything matching #{msg.match[2]}"
+        else
+          msg.send out
