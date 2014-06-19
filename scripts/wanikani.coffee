@@ -21,7 +21,6 @@ module.exports = (robot) ->
                              data += chunk
  
                          res.on 'end', () ->
-                             msg.send data
                              stats = JSON.parse data
                              if stats.error
                                msg.send "Error: #{stats.error.message}"
