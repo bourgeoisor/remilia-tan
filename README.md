@@ -19,7 +19,6 @@ If you want to launch the bot locally:
 
 ## ToDo list
 
-- Make a preper help command.
-- Put a weather plugin.
-- Put a lastfm plugin.
+- Make a proper help command.
+- Do something for the weather plugin.
 - Make a wanikani plugin.
