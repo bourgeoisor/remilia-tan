@@ -2,14 +2,22 @@
 #   Wanikani interactions for fun and gloating.
 #
 # Commands:
-#   hubot wanikani reviews - Returns the calling user's review counts
-#   hubot set my apikey to <key> - Sets the user's API key
+#   hubot set my wanikani api key to <key> - Sets the user's API key
+#   hubot what is my review count - Returns the calling user's review counts
+#   hubot wanikani status - Returns the status of the user's items
 
 http = require('http')
 
 module.exports = (robot) ->
 
-    robot.respond /wanikani reviews/i, (msg) ->
+    robot.respond /set my wanikani api\s?key to (\S+)/i, (msg) ->
+      key = msg.match[1]
+      user = robot.brain.userForId(msg.message.user.id)
+      user.wanikani = user.wanikani or {}
+      user.wanikani.apikey = key
+      msg.send "Okay, #{msg.message.user.name}. I saved your key."
+      
+    robot.respond /what is my review count/i, (msg) ->
       user = robot.brain.userForId(msg.message.user.id)
       apikey = user.wanikani?.apikey
 
@@ -27,7 +35,7 @@ module.exports = (robot) ->
                                return
 
                              stats = stats.requested_information
-                             msg.send "Lessons: #{stats.lessons_available} - Reviews: #{stats.reviews_available} - Hour: #{stats.reviews_available_next_hour} - Day: #{stats.reviews_available_next_day}"
+                             msg.send "Lessons: #{stats.lessons_available} - Reviews: #{stats.reviews_available} - Next Hour: #{stats.reviews_available_next_hour} - Next Day: #{stats.reviews_available_next_day}"
 
                          res.on 'error', (res) ->
                              msg.send "Error getting WK data: #{res.message}"
@@ -35,13 +43,6 @@ module.exports = (robot) ->
       else
         msg.send "No apikey found for #{user.name}"
 
-    robot.respond /set my api\s?key to (\S+)/i, (msg) ->
-      key = msg.match[1]
-      user = robot.brain.userForId(msg.message.user.id)
-      user.wanikani = user.wanikani or {}
-      user.wanikani.apikey = key
-      msg.send "Okay, #{msg.message.user.name}. I saved your key."
-      
     robot.respond /wanikani status/i, (msg) ->
       user = robot.brain.userForId(msg.message.user.id)
       apikey = user.wanikani?.apikey
@@ -63,5 +64,5 @@ module.exports = (robot) ->
               stats = stats.requested_information
               msg.send "Apprentice: #{stats.apprentice?.total} - Guru: #{stats.guru?.total} - Master: #{stats.master?.total} - Enlightend: #{stats.enlighten?.total} - Burned: #{stats.burned?.total}"
       else
-        msg.send "No apikey found for #{user.name}"
+        msg.send "No apikey found for #{user.name}."
           
