@@ -3,6 +3,7 @@
 ## Installation / Usage
 
 I'll write a better readme someday.
+To be able to test the bot locally, you should have nodejs and npm installed already.
 
 Clone the repository:
 
@@ -19,6 +20,4 @@ If you want to launch the bot locally:
 
 ## ToDo list
 
-- Make a proper help command.
-- Do something for the weather plugin.
-- Make a wanikani plugin.
+- Nothing yet.
