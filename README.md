@@ -17,7 +17,3 @@ Install the packages required for testing:
 If you want to launch the bot locally:
 
     bin/hubot --name remilia-tan
-
-## ToDo list
-
-- Nothing yet.
