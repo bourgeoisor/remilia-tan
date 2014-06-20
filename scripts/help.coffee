@@ -64,7 +64,7 @@ module.exports = (robot) ->
         msg.send "No available commands match #{filter}"
         return
     else
-      msg.send "I'm not spamming the channel, baka. Try: http://finiks.net:8080/hubot/help"
+      msg.send "I'm not spamming the channel, baka. Try: http://finiks.net:8080/#(robot.name)/help"
       return
 
     prefix = robot.alias or robot.name
