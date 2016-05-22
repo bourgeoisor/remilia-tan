@@ -1,7 +1,12 @@
 #!/bin/sh
 
+set -e
+
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-exec node_modules/.bin/hubot "$@"
+export HUBOT_IRC_SERVER="irc.rizon.net"
+export HUBOT_IRC_ROOMS="#wanikani"
+export HUBOT_IRC_NICK="remilia-tan"
 
+exec node_modules/.bin/hubot -a irc --name "remilia-tan" "$@"
