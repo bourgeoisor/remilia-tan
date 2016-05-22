@@ -9,11 +9,7 @@ Clone the repository:
 
     git clone https://github.com/finiks/remilia-tan.git
 
-Install the packages required for testing:
-
-    cd remilia-tan
-    npm install -g hubot coffee-script
-
 If you want to launch the bot locally:
+(Warning: For the moment being, this will always launch to rizon/#wanikani)
 
-    bin/hubot --name remilia-tan
+    bin/hubot
