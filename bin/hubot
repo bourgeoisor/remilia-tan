@@ -9,4 +9,4 @@ export HUBOT_IRC_SERVER="irc.rizon.net"
 export HUBOT_IRC_ROOMS="#wanikani"
 export HUBOT_IRC_NICK="remilia-tan"
 
-exec node_modules/.bin/hubot -a irc --name "remilia-tan" "$@"
+exec node_modules/.bin/hubot -a irc --name "remilia-tan" --alias "!" "$@"
