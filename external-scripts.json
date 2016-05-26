@@ -4,5 +4,6 @@
   "hubot-google-images",
   "hubot-google-translate",
   "hubot-maps",
-  "hubot-redis-brain"
+  "hubot-redis-brain",
+  "hubot-reload-scripts"
 ]
