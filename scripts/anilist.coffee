@@ -1,8 +1,9 @@
 # Description:
-#   Searches jisho for a given word or sentence
+#   Searches for anime via AniList
 #
 # Commands:
-#   hubot jisho me <phrase> - Searches for a translation for <phrase> on jisho.
+#   hubot anime search <query> - Searches for an anime title.
+#   hubot anime get <id> - Display information about an AniList ID.
 
 module.exports = (robot) ->
   auth = (cb) ->
@@ -27,3 +28,11 @@ module.exports = (robot) ->
           msg.send "#{anime['title_romaji']} (#{anime['type']}) ID: #{anime['id']}" for key, anime of data
     auth(cb)
 
+  robot.respond /anime get (.*)/i, (msg) ->
+    cb = (token) ->
+      robot.http("https://anilist.co/api/anime/#{msg.match[1]}?access_token=#{token}")
+        .get() (err, res, body) ->
+          data = JSON.parse body
+          url = "https://anilist.co/anime/#{data['id']}"
+          msg.send "#{data['title_romaji']} (#{data['type']}) - Score: #{data['average_score']} - #{url}"
+    auth(cb)
