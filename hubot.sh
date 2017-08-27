@@ -5,7 +5,7 @@ HUBOT_IRC_NICK="remilia-tan"
 HUBOT_ALIAS="!"
 
 export HUBOT_IRC_SERVER="irc.rizon.net"
-export HUBOT_IRC_ROOMS="#wanikanidev"
+export HUBOT_IRC_ROOMS="#wanikani"
 export HUBOT_IRC_NICK=$HUBOT_IRC_NICK
 
 export HUBOT_HELP_REPLY_IN_PRIVATE="true"
