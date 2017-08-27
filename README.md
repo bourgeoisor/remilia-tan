@@ -5,6 +5,9 @@ Remilia-tan is one of the two bots currently governing the #wanikani channel on 
 ## Installation / Usage
 
 To be able to launch, you should have [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed already.
+[Docker](https://www.docker.com) is also necessary to be able to build and launch the container.
+
+### With Docker (Recommended)
 
 Clone the repository:
 
